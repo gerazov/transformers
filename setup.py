@@ -128,10 +128,11 @@ _deps = [
     # Keras pin - this is to make sure Keras 3 doesn't destroy us. Remove or change when we have proper support.
     "keras<2.16",
     "keras-nlp>=0.3.1",
-    "librosa",
+    # "librosa=0.8.0",
     "nltk",
     "natten>=0.14.6,<0.15.0",
     "numpy>=1.17",
+    # "numpy<=1.20",
     "onnxconverter-common",
     "onnxruntime-tools>=1.4.2",
     "onnxruntime>=1.4.0",
@@ -284,7 +285,8 @@ extras["sigopt"] = deps_list("sigopt")
 extras["integrations"] = extras["optuna"] + extras["ray"] + extras["sigopt"]
 
 extras["serving"] = deps_list("pydantic", "uvicorn", "fastapi", "starlette")
-extras["audio"] = deps_list("librosa", "pyctcdecode", "phonemizer", "kenlm")
+# extras["audio"] = deps_list("librosa", "pyctcdecode", "phonemizer", "kenlm")
+extras["audio"] = deps_list("pyctcdecode", "phonemizer", "kenlm")
 # `pip install ".[speech]"` is deprecated and `pip install ".[torch-speech]"` should be used instead
 extras["speech"] = deps_list("torchaudio") + extras["audio"]
 extras["torch-speech"] = deps_list("torchaudio") + extras["audio"]
